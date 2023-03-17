@@ -1,8 +1,17 @@
-import './assets/css/App.css';
-import Main from './pages/main/Main';
+import "./assets/css/App.css";
+
+import * as S from "./styles/MainStyle";
+
+import bg from "./assets/images/background.mp4";
+import Router from "./Router";
 
 function App() {
-	return <Main></Main>;
+  return (
+    <S.Background>
+      <S.Video src={bg} autoPlay loop muted></S.Video>
+      <Router />
+    </S.Background>
+  );
 }
 
 export default App;
