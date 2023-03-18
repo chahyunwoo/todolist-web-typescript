@@ -1,20 +1,20 @@
-import styled, { keyframes } from "styled-components";
-import tw from "twin.macro";
+import styled, { keyframes } from 'styled-components';
+import tw from 'twin.macro';
 
 export const LoginContainer = styled.div`
-  ${tw`
+	${tw`
 			my-0
 			mx-auto
 			text-center
 			absolute
 	`}
-  width: 600px;
-  height: 600px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  transition: 0.5s;
+	width: 600px;
+	height: 600px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	transition: 0.5s;
 `;
 
 const circleAnimation = keyframes`
@@ -28,7 +28,7 @@ const circleAnimation = keyframes`
 `;
 
 export const Circle = styled.span`
-  ${tw`
+	${tw`
 			absolute
 			top-0
 			left-0
@@ -38,25 +38,25 @@ export const Circle = styled.span`
 			border-solid
 			border-white
 	`}
-  border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
-  transition: 0.5s;
+	border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+	transition: 0.5s;
 
-  &:nth-of-type(1) {
-    animation: ${circleAnimation} 10s linear infinite;
-  }
+	&:nth-of-type(1) {
+		animation: ${circleAnimation} 10s linear infinite;
+	}
 
-  &:nth-of-type(2) {
-    animation: ${circleAnimation} 20s linear infinite;
-    animation-direction: reverse;
-  }
+	&:nth-of-type(2) {
+		animation: ${circleAnimation} 20s linear infinite;
+		animation-direction: reverse;
+	}
 
-  &:nth-of-type(3) {
-    animation: ${circleAnimation} 40s linear infinite;
-  }
+	&:nth-of-type(3) {
+		animation: ${circleAnimation} 40s linear infinite;
+	}
 `;
 
-export const Form = styled.form`
-  ${tw`
+export const LoginBox = styled.div`
+	${tw`
 			absolute
 			w-full
 			flex
@@ -65,13 +65,13 @@ export const Form = styled.form`
 			items-center
 			p-20
 	`}
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 `;
 
 export const Input = styled.input`
-  ${tw`
+	${tw`
 			appearance-none
 			bg-transparent
 			w-full
@@ -88,22 +88,22 @@ export const Input = styled.input`
 			tracking-wide
 	`}
 
-  &:focus {
-    &::placeholder {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
+	&:focus {
+		&::placeholder {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
 
-  &::placeholder {
-    opacity: 1;
-    visibility: visible;
-    transition: 0.5s;
-  }
+	&::placeholder {
+		opacity: 1;
+		visibility: visible;
+		transition: 0.5s;
+	}
 `;
 
 export const Button = styled.button`
-  ${tw`
+	${tw`
 			w-full
 			text-center
 			py-3
@@ -114,5 +114,5 @@ export const Button = styled.button`
 			hover:bg-orange-600
 			hover:border-orange-600
 	`}
-  transition: 0.5s
+	transition: 0.5s
 `;

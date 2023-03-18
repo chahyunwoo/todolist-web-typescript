@@ -1,7 +1,11 @@
-import React from "react";
+import * as S from '../styles/components/LayoutStyle';
 
-function Layout() {
-  return <div>Layout</div>;
+interface IProps {
+	children?: React.ReactNode;
 }
+
+const Layout: React.FC<IProps> = (props) => {
+	return <S.Section>{props.children}</S.Section>;
+};
 
 export default Layout;
