@@ -12,11 +12,11 @@ export const ToDoBox = styled.article`
       w-1/4
       text-white
       p-5
+      relative
   `}
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	border-radius: 5px;
-	justify-content: space-between;
-	min-height: 80%;
+	min-height: 60vh;
 `;
 
 export const Input = styled.input`
@@ -61,8 +61,28 @@ export const ListBox = styled.ul`
 	${tw`
       w-full
       mt-5
+      mb-7
   `}
 	display: block;
+	overflow: hidden;
+	max-height: 60vh;
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-button {
+		height: 2px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
 `;
 
 export const List = styled.li`
@@ -87,4 +107,25 @@ export const Span = styled.span<ISpanProps>`
 	color: ${({ done }) => (done ? '#4cd137' : '#fff')};
 	cursor: pointer;
 	transition: color 0.35s;
+`;
+
+export const deleteAllButtonWrap = styled.div`
+	${tw`
+      absolute
+      py-3
+      w-full
+  `}
+	bottom: 0;
+	left: 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	text-align: center;
+`;
+
+export const DeleteAllButton = styled.span`
+	cursor: pointer;
+	transition: 0.5s;
+
+	&:hover {
+		color: crimson;
+	}
 `;

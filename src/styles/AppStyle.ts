@@ -6,6 +6,7 @@ export const Background = styled.section`
 		w-full
 		h-screen
 		relative
+		overflow-hidden
 `}
 
 	&::after {

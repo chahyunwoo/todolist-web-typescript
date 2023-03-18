@@ -63,6 +63,10 @@ const ToDo: React.FC = () => {
 		setList((prevList) => prevList.filter((item) => item.id !== index));
 	};
 
+	const handleDeleteAll = () => {
+		setList([]);
+	};
+
 	return (
 		<S.ToDoBox>
 			<S.Input
@@ -90,6 +94,11 @@ const ToDo: React.FC = () => {
 						</button>
 					</S.List>
 				))}
+				<S.deleteAllButtonWrap>
+					<S.DeleteAllButton onClick={handleDeleteAll}>
+						전체 삭제
+					</S.DeleteAllButton>
+				</S.deleteAllButtonWrap>
 			</S.ListBox>
 		</S.ToDoBox>
 	);
