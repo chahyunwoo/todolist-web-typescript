@@ -106,7 +106,7 @@ const Info: React.FC = () => {
 							<li>현재 기온: {currentWeather.temp} °C</li>
 							<li>체감 온도: {currentWeather.feels_like} °C</li>
 							<li>{currentWeather.weather}</li>
-							<li>습도: {currentWeather.humidity}</li>
+							<li>습도: {currentWeather.humidity} %</li>
 							<li>
 								시간 당 강수량:{' '}
 								{`${currentWeather.rain ? currentWeather.rain + 'mm' : '-'}`}
