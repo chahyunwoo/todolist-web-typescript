@@ -1,4 +1,4 @@
-import GPTChat from '../components/GPTChat';
+import DrawingCanvas from '../components/DrawingCanvas';
 import Info from '../components/Info';
 import Layout from '../components/Layout';
 import ToDo from '../components/ToDo';
@@ -16,7 +16,7 @@ const Main: React.FC = () => {
 				</S.LeftSection>
 				<S.RightSection>
 					<Info />
-					<GPTChat />
+					<DrawingCanvas />
 				</S.RightSection>
 			</S.SectionWrap>
 		</Layout>
