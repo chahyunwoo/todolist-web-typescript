@@ -14,4 +14,13 @@ export const Section = styled.section`
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 1;
+
+	@media screen and (max-width: 1280px) {
+		width: 100%;
+		padding: 30px 20px;
+		display: block;
+		top: 0;
+		left: 0;
+		transform: unset;
+	}
 `;

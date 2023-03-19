@@ -9,7 +9,7 @@ interface ISpanProps {
 
 export const ToDoBox = styled.article`
 	${tw`
-      w-1/4
+      w-full
       text-white
       p-5
       relative
@@ -17,6 +17,10 @@ export const ToDoBox = styled.article`
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	border-radius: 5px;
 	min-height: 60vh;
+
+	@media screen and (max-width: 1280px) {
+		padding: 20px 10px 10px 10px;
+	}
 `;
 
 export const Input = styled.input`
@@ -46,6 +50,10 @@ export const Input = styled.input`
 		visibility: visible;
 		transition: 0.5s;
 	}
+
+	@media screen and (max-width: 1280px) {
+		width: calc(100% - 30px - 50px);
+	}
 `;
 
 export const AddButton = styled(Button)`
@@ -55,6 +63,11 @@ export const AddButton = styled(Button)`
 	border-radius: 2px;
 	margin-left: 5%;
 	width: calc(100% - 80%);
+
+	@media screen and (max-width: 1280px) {
+		width: 50px;
+		margin-left: 30px;
+	}
 `;
 
 export const ListBox = styled.ul`
@@ -82,6 +95,11 @@ export const ListBox = styled.ul`
 
 	&::-webkit-scrollbar-thumb {
 		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	@media screen and (max-width: 1280px) {
+		max-height: unset;
+		overflow: unset;
 	}
 `;
 

@@ -15,6 +15,11 @@ export const LoginContainer = styled.div`
 	transform: translate(-50%, -50%);
 	z-index: 1;
 	transition: 0.5s;
+
+	@media screen and (max-width: 1280px) {
+		width: 100%;
+		height: 100%;
+	}
 `;
 
 const circleAnimation = keyframes`
@@ -52,6 +57,10 @@ export const Circle = styled.span`
 
 	&:nth-of-type(3) {
 		animation: ${circleAnimation} 40s linear infinite;
+	}
+
+	@media screen and (max-width: 1280px) {
+		display: none;
 	}
 `;
 

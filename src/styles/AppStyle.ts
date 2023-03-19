@@ -17,6 +17,15 @@ export const Background = styled.section`
 		width: 100%;
 		height: 100%;
 	}
+
+	@media screen and (max-width: 1280px) {
+		overflow: auto;
+		background-color: black;
+
+		&::after {
+			display: none;
+		}
+	}
 `;
 
 export const Video = styled.video`
@@ -24,4 +33,8 @@ export const Video = styled.video`
 	height: 100%;
 	object-fit: cover;
 	z-index: -1;
+
+	@media screen and (max-width: 1280px) {
+		display: none;
+	}
 `;
