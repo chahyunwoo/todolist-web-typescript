@@ -56,7 +56,7 @@ export const LeftBox = styled.div`
     }
 
     div {
-      width: 30%;
+      width: 100px;
     }
   }
 `;
