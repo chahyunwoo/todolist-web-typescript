@@ -1,26 +1,21 @@
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import styled from "styled-components";
+import tw from "twin.macro";
 
 export const Section = styled.section`
-	${tw`
-      absolute
+  ${tw`
       p-10
 			flex
 			flex-wrap
+			relative
   `}
-	width: 90%;
-	height: auto;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 1;
+  z-index: 9;
 
-	@media screen and (max-width: 1280px) {
-		width: 100%;
-		padding: 30px 20px;
-		display: block;
-		top: 0;
-		left: 0;
-		transform: unset;
-	}
+  @media screen and (max-width: 1280px) {
+    width: 100%;
+    padding: 30px 20px;
+    display: block;
+    top: 0;
+    left: 0;
+    transform: unset;
+  }
 `;

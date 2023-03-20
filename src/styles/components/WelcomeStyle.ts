@@ -1,53 +1,54 @@
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import styled from "styled-components";
+import tw from "twin.macro";
 
-export const TitleBox = styled.article`
-	${tw`
+export const TitleBox = styled.section`
+  ${tw`
       w-full
       text-white
       p-5
       flex
       items-center
   `}
-	border: 1px solid rgba(255, 255, 255, 0.5);
-	border-radius: 5px;
-	justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  justify-content: space-between;
+  height: 10vh;
 
-	@media screen and (max-width: 1280px) {
-		justify-content: flex-start;
-		flex-wrap: wrap;
-		padding: 10px;
-	}
+  @media screen and (max-width: 1280px) {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: auto;
+  }
 `;
 
 export const LeftBox = styled.div`
-	@media screen and (max-width: 1280px) {
-		width: 100%;
-	}
+  @media screen and (max-width: 1280px) {
+    width: 100%;
+  }
 `;
 
 export const RightBox = styled.div`
-	@media screen and (max-width: 1280px) {
-		width: 100%;
-		margin-top: 20px;
-	}
+  @media screen and (max-width: 1280px) {
+    width: 100%;
+    margin-top: 20px;
+  }
 `;
 
 export const P = styled.p`
-	${tw`
+  ${tw`
       mb-2
       text-lg
   `}
 
-	@media screen and (max-width: 1280px) {
-		${tw`
+  @media screen and (max-width: 1280px) {
+    ${tw`
         text-base
     `}
-	}
+  }
 `;
 
 export const Button = styled.button`
-	${tw`
+  ${tw`
       text-xs
       text-sky-500
       tracking-wider
@@ -55,11 +56,11 @@ export const Button = styled.button`
 `;
 
 export const Time = styled.p`
-	${tw`
+  ${tw`
       text-sm
   `}
 
-	@media screen and (max-width: 1280px) {
-		font-size: 12px;
-	}
+  @media screen and (max-width: 1280px) {
+    font-size: 12px;
+  }
 `;
