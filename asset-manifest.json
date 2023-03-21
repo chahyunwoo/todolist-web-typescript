@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/todolist-web-typescript/static/css/main.374f1958.css",
-    "main.js": "/todolist-web-typescript/static/js/main.aa451d12.js",
+    "main.js": "/todolist-web-typescript/static/js/main.6d02ea68.js",
     "static/media/background.mp4": "/todolist-web-typescript/static/media/background.c34c53942cec72298bed.mp4",
     "index.html": "/todolist-web-typescript/index.html",
     "main.374f1958.css.map": "/todolist-web-typescript/static/css/main.374f1958.css.map",
-    "main.aa451d12.js.map": "/todolist-web-typescript/static/js/main.aa451d12.js.map"
+    "main.6d02ea68.js.map": "/todolist-web-typescript/static/js/main.6d02ea68.js.map"
   },
   "entrypoints": [
     "static/css/main.374f1958.css",
-    "static/js/main.aa451d12.js"
+    "static/js/main.6d02ea68.js"
   ]
 }
