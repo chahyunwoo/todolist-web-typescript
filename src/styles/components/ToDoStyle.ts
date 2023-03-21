@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import tw from "twin.macro";
-
 import { Button } from "@material-tailwind/react";
 
 interface ISpanProps {
@@ -83,6 +82,17 @@ export const ListBox = styled.ul`
     min-height: 400px;
     overflow: unset;
   }
+`;
+
+export const Initial = styled.div`
+  justify-content: center;
+  opacity: 0.5;
+  line-height: 1.6;
+  font-weight: 100;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 1rem;
+  color: #fff;
 `;
 
 export const List = styled.li`

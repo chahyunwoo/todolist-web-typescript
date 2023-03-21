@@ -1,6 +1,21 @@
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import {
+  faBolt,
+  faCloud,
+  faCloudMoon,
+  faCloudMoonRain,
+  faCloudShowersHeavy,
+  faCloudSun,
+  faCloudSunRain,
+  faMoon,
+  faQuestionCircle,
+  faSmog,
+  faSnowflake,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons";
 import axios, { AxiosError } from "axios";
 
-const API_KEY = "f3a83f0aa33894efbd5159dbe0260a73";
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 export interface IWeatherData {
   temp: number;
@@ -8,7 +23,7 @@ export interface IWeatherData {
   humidity: number;
   weather: string;
   description: string;
-  icon: string;
+  icon: any;
   rain?: number;
   snow?: number;
 }
@@ -29,6 +44,27 @@ const weatherKoreanMap: { [key: string]: string } = {
   Ash: "재",
   Squall: "돌풍",
   Tornado: "토네이도",
+};
+
+const weatherIconMap: { [key: string]: IconDefinition } = {
+  "01d": faSun,
+  "01n": faMoon,
+  "02d": faCloudSun,
+  "02n": faCloudMoon,
+  "03d": faCloud,
+  "03n": faCloud,
+  "04d": faCloud,
+  "04n": faCloud,
+  "09d": faCloudShowersHeavy,
+  "09n": faCloudShowersHeavy,
+  "10d": faCloudSunRain,
+  "10n": faCloudMoonRain,
+  "11d": faBolt,
+  "11n": faBolt,
+  "13d": faSnowflake,
+  "13n": faSnowflake,
+  "50d": faSmog,
+  "50n": faSmog,
 };
 
 export async function fetchCurrentWeather(
@@ -64,4 +100,8 @@ export async function fetchCurrentWeather(
 
 export function getWeatherInKorean(weather: string): string {
   return weatherKoreanMap[weather] || weather;
+}
+
+export function getWeatherIcon(icon: string): IconDefinition {
+  return weatherIconMap[icon] || faQuestionCircle;
 }

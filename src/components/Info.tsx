@@ -1,12 +1,18 @@
 import { useEffect, useState, useCallback } from "react";
-import { fetchCurrentWeather, getWeatherInKorean } from "../api/weatherAPI";
+import {
+  fetchCurrentWeather,
+  getWeatherInKorean,
+  getWeatherIcon,
+} from "../api/weatherAPI";
 import { fetchUserLocation } from "../api/location";
-
 import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../redux/store/store";
 import { setCurrentWeather } from "../redux/slices/weatherSlice";
 import { setCurrentLocation } from "../redux/slices/locationSlice";
+
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import * as S from "../styles/components/InfoStyle";
 
@@ -55,6 +61,7 @@ const Info: React.FC = () => {
       const userLocation = await fetchUserLocation(lat, lon);
 
       current.weather = getWeatherInKorean(current.weather);
+      current.icon = getWeatherIcon(current.icon);
 
       dispatch(setCurrentWeather(current));
       dispatch(setCurrentLocation(userLocation));
@@ -97,10 +104,7 @@ const Info: React.FC = () => {
             <S.LeftBox>
               <p>{`현재 위치는 ${currentLocation.address_name}입니다.`}</p>
               <div>
-                <img
-                  src={`http://openweathermap.org/img/w/${currentWeather.icon}.png`}
-                  alt={currentWeather.description}
-                />
+                <FontAwesomeIcon icon={currentWeather.icon as IconProp} />
               </div>
             </S.LeftBox>
             <S.RightBox>

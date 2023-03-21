@@ -82,20 +82,29 @@ const ToDo: React.FC = () => {
         </S.AddButton>
       </S.InputBox>
       <S.ListBox>
-        {list.map((item) => (
-          <S.List key={item.id}>
-            <S.Span onClick={() => handleListClick(item.id)} done={item.done}>
-              {item.text}
-            </S.Span>
-            <button onClick={() => handleDelete(item.id)}>
-              <FontAwesomeIcon
-                icon={faTrash}
-                size="xs"
-                style={{ color: "rgba(255, 255, 255, 0.5)" }}
-              />
-            </button>
-          </S.List>
-        ))}
+        {list.length === 0 ? (
+          <S.Initial>
+            <p>
+              아직 할 일을 등록하지 않으셨군요? <br />
+              오늘의 할 일 리스트를 작성해보세요.
+            </p>
+          </S.Initial>
+        ) : (
+          list.map((item) => (
+            <S.List key={item.id}>
+              <S.Span onClick={() => handleListClick(item.id)} done={item.done}>
+                {item.text}
+              </S.Span>
+              <button onClick={() => handleDelete(item.id)}>
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  size="xs"
+                  style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                />
+              </button>
+            </S.List>
+          ))
+        )}
       </S.ListBox>
       <S.deleteAllButtonWrap>
         <S.DeleteAllButton onClick={handleDeleteAll}>

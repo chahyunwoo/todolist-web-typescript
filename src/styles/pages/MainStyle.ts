@@ -38,6 +38,7 @@ export const RightSection = styled.section`
   `}
   width: calc(75% - 2.5rem);
   border-radius: 5px;
+  height: 100%;
 
   @media screen and (max-width: 1280px) {
     width: 100%;
