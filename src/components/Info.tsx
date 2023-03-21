@@ -84,7 +84,6 @@ const Info: React.FC = () => {
 		};
 	}, [fetchData]);
 
-	console.log(error, hasFailed);
 	return (
 		<>
 			<S.InfoBox>
