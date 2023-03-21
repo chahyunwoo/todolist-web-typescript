@@ -15,8 +15,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import axios, { AxiosError } from 'axios';
 
-// const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-const API_KEY = '15f68789b86b507ddb7e000315937870';
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 export interface IWeatherData {
 	temp: number;
