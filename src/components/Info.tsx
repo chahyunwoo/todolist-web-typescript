@@ -31,8 +31,8 @@ const Info: React.FC = () => {
 		null
 	);
 
-	const [_, setError] = useState<string | null>(null);
-	const [__, setHasFailed] = useState<boolean>(false);
+	const [error, setError] = useState<string | null>(null);
+	const [hasFailed, setHasFailed] = useState<boolean>(false);
 
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -49,6 +49,7 @@ const Info: React.FC = () => {
 				setError('위치 서비스에 대한 액세스를 허용해야 합니다.');
 			}
 		);
+		console.log(error);
 	}, []);
 
 	const fetchData = useCallback(async () => {
@@ -70,6 +71,7 @@ const Info: React.FC = () => {
 		} catch (error) {
 			console.error('Error fetching weather data:', error);
 			setHasFailed(true);
+			console.log(hasFailed);
 			setTimeout(fetchData, 5 * 60 * 1000);
 		}
 	}, [location, dispatch]);
