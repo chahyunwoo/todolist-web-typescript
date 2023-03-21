@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 
+// const API_KEY = process.env.REACT_APP_LOCATION_API_KEY;
 const API_KEY = 'e0f2c8451bc6e06b5d2f9054582b1629';
 
 export async function fetchUserLocation(

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_KEY = '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';
+// const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
+const API_KEY = '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';
 
 const openaiApi = axios.create({
 	baseURL: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
@@ -28,5 +29,6 @@ export const fetchChatResponse = async (prompt: string) => {
 		return cleanedAiResponse;
 	} catch (error) {
 		console.error('Error fetching chat response:', error);
+		return '지금은 충전 중이에요! 이따가 다시 대화해요!';
 	}
 };
