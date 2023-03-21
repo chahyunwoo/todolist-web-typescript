@@ -121,6 +121,7 @@ export const ChatInputForm = styled.form`
 		padding: 8px 12px;
 		background-color: transparent;
 		outline: none;
+		width: calc(100% - 50px);
 		cursor: pointer;
 
 		&:focus {
@@ -141,7 +142,7 @@ export const ChatInputForm = styled.form`
 		padding: 8px 12px;
 		background-color: transparent;
 		border-left: 1px solid rgba(255, 255, 255, 0.5);
-		width: 40px;
+		width: 50px;
 		cursor: pointer;
 	}
 `;
