@@ -1,13 +1,13 @@
 import ChatGPT from "../components/ChatGPT";
 import Info from "../components/Info";
-import Layout from "../components/Layout";
+import MainLayout from "../components/layout/MainLayout";
 import ToDo from "../components/ToDo";
 import Welcome from "../components/Welcome";
 
 import * as S from "../styles/pages/MainStyle";
 const Main: React.FC = () => {
   return (
-    <Layout>
+    <MainLayout>
       <Welcome />
       <S.SectionWrap>
         <S.LeftSection>
@@ -18,7 +18,7 @@ const Main: React.FC = () => {
           <ChatGPT />
         </S.RightSection>
       </S.SectionWrap>
-    </Layout>
+    </MainLayout>
   );
 };
 

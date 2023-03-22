@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
-import * as S from "../styles/components/LayoutStyle";
+import * as S from "./MainLayoutStyle";
 
 interface IProps {
   children?: React.ReactNode;
 }
 
-const Layout: React.FC<IProps> = (props) => {
+const MainLayout: React.FC<IProps> = (props) => {
   const layoutRef = useRef<any>(null);
 
   useEffect(() => {
@@ -20,4 +20,4 @@ const Layout: React.FC<IProps> = (props) => {
   );
 };
 
-export default Layout;
+export default MainLayout;
