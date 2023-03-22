@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, memo, useCallback } from 'react';
 import { fetchChatResponse } from '../../api/chatGPT';
 import * as S from './ChatGPT.styles';
 
@@ -28,23 +28,26 @@ const ChatGPT: React.FC = () => {
 		scrollToLatestMessage();
 	}, [messages]);
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const handleSubmit = useCallback(
+		async (e: React.FormEvent<HTMLFormElement>) => {
+			e.preventDefault();
 
-		if (!userInput.trim()) return;
+			if (!userInput.trim()) return;
 
-		setMessages((prev) => [...prev, { content: userInput, sender: 'user' }]);
-		setUserInput('');
+			setMessages((prev) => [...prev, { content: userInput, sender: 'user' }]);
+			setUserInput('');
 
-		setIsTyping(true);
+			setIsTyping(true);
 
-		const prompt = `Human: ${userInput}\nAI`;
-		const aiResponse = await fetchChatResponse(prompt);
+			const prompt = `Human: ${userInput}\nAI`;
+			const aiResponse = await fetchChatResponse(prompt);
 
-		setIsTyping(false);
+			setIsTyping(false);
 
-		setMessages((prev) => [...prev, { content: aiResponse, sender: 'ai' }]);
-	};
+			setMessages((prev) => [...prev, { content: aiResponse, sender: 'ai' }]);
+		},
+		[userInput]
+	);
 
 	const messageTransitions = useTransition(messages, {
 		from: { opacity: 0, transform: 'translateY(20px)' },
@@ -55,6 +58,8 @@ const ChatGPT: React.FC = () => {
 			friction: 24,
 		},
 	});
+
+	const MemoizedChatMessage = memo(S.ChatMessage);
 
 	return (
 		<ComponentLayout component='chatGPT'>
@@ -68,9 +73,9 @@ const ChatGPT: React.FC = () => {
 					</InitialText>
 				) : (
 					messageTransitions((style, message) => (
-						<S.ChatMessage sender={message.sender} style={style}>
+						<MemoizedChatMessage sender={message.sender} style={style}>
 							<span style={{ lineHeight: '1.4' }}>{message.content}</span>
-						</S.ChatMessage>
+						</MemoizedChatMessage>
 					))
 				)}
 
