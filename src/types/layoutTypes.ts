@@ -1,7 +1,7 @@
-export interface ILayoutType {
+export interface ILayout {
 	children?: React.ReactNode;
 }
 
-export interface IComponentLayoutType extends ILayoutType {
+export interface IComponentLayout extends ILayout {
 	component: string;
 }
