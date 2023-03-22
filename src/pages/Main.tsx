@@ -1,25 +1,24 @@
-import ChatGPT from "../components/ChatGPT";
-import Info from "../components/Info";
-import Layout from "../components/Layout";
-import ToDo from "../components/ToDo";
-import Welcome from "../components/Welcome";
+import ChatGPT from '../components/containers/ChatGPT';
+import Info from '../components/containers/Info';
+import MainLayout from '../components/layout/MainLayout';
+import ToDo from '../components/containers/ToDo';
+import Welcome from '../components/containers/Welcome';
 
-import * as S from "../styles/pages/MainStyle";
+import * as S from './Main.styles';
+
 const Main: React.FC = () => {
-  return (
-    <Layout>
-      <Welcome />
-      <S.SectionWrap>
-        <S.LeftSection>
-          <ToDo />
-        </S.LeftSection>
-        <S.RightSection>
-          <Info />
-          <ChatGPT />
-        </S.RightSection>
-      </S.SectionWrap>
-    </Layout>
-  );
+	return (
+		<MainLayout>
+			<Welcome />
+			<S.SectionWrap>
+				<ToDo />
+				<S.RightSection>
+					<Info />
+					<ChatGPT />
+				</S.RightSection>
+			</S.SectionWrap>
+		</MainLayout>
+	);
 };
 
 export default Main;

@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store/store';
+import { RootState } from '../../redux/store/store';
 import { useDispatch } from 'react-redux';
-import { logout } from '../redux/slices/authSlice';
+import { logout } from '../../redux/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { removeName } from '../redux/slices/nameSlice';
+import { removeName } from '../../redux/slices/nameSlice';
 import { useState, useEffect, useCallback } from 'react';
 
-import * as S from '../styles/components/WelcomeStyle';
+import * as S from './Welcome.styles';
+
+import ComponentLayout from '../layout/ComponentLayout';
 
 const Welcome: React.FC = () => {
 	const myName = useSelector((state: RootState) => state.setName.name);
@@ -49,7 +51,7 @@ const Welcome: React.FC = () => {
 
 	return (
 		<>
-			<S.TitleBox>
+			<ComponentLayout component='welcome'>
 				<S.LeftBox>
 					<S.P>{myName} 님! 오늘도 좋은 하루 보내세요.</S.P>
 					<S.Button onClick={onClick}>{myName}님이 아닌가요?</S.Button>
@@ -57,7 +59,7 @@ const Welcome: React.FC = () => {
 				<S.RightBox>
 					<S.Time>{`현재 시간은 ${year}년 ${month}월 ${date}일 ${day} ${hour}시 ${minute}분 ${second}초 입니다.`}</S.Time>
 				</S.RightBox>
-			</S.TitleBox>
+			</ComponentLayout>
 		</>
 	);
 };

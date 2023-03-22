@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface NameType {
-	name?: string;
+	name: string;
 }
 
 const initialState: NameType = {

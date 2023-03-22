@@ -1,29 +1,10 @@
 import styled from 'styled-components';
-import tw from 'twin.macro';
 
-export const InfoBox = styled.article`
-	${tw`
-      text-white
-      p-5
-      flex
-      flex-wrap
-      relative
-  `}
-	border: 1px solid rgba(255, 255, 255, 0.5);
-	width: 100%;
-	border-radius: 5px;
-	height: 25vh;
-
-	.spinner {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	@media screen and (max-width: 1280px) {
-		height: auto;
-	}
+export const Spinner = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 `;
 
 export const LeftBox = styled.div`

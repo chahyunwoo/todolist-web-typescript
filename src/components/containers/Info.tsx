@@ -3,18 +3,20 @@ import {
 	fetchCurrentWeather,
 	getWeatherInKorean,
 	getWeatherIcon,
-} from '../api/weatherAPI';
-import { fetchUserLocation } from '../api/location';
+} from '../../api/weatherAPI';
+import { fetchUserLocation } from '../../api/location';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState } from '../redux/store/store';
-import { setCurrentWeather } from '../redux/slices/weatherSlice';
-import { setCurrentLocation } from '../redux/slices/locationSlice';
+import { RootState } from '../../redux/store/store';
+import { setCurrentWeather } from '../../redux/slices/weatherSlice';
+import { setCurrentLocation } from '../../redux/slices/locationSlice';
 
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import * as S from '../styles/components/InfoStyle';
+import * as S from './Info.styles';
+
+import ComponentLayout from '../layout/ComponentLayout';
 
 const Info: React.FC = () => {
 	const dispatch = useDispatch();
@@ -86,9 +88,9 @@ const Info: React.FC = () => {
 
 	return (
 		<>
-			<S.InfoBox>
+			<ComponentLayout component='info'>
 				{isLoading && (
-					<div className=' spinner'>
+					<S.Spinner>
 						<div
 							className='inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-secondary motion-reduce:animate-[spin_1.5s_linear_infinite]'
 							role='status'>
@@ -96,7 +98,7 @@ const Info: React.FC = () => {
 								Loading...
 							</span>
 						</div>
-					</div>
+					</S.Spinner>
 				)}
 				{currentWeather && (
 					<>
@@ -122,7 +124,7 @@ const Info: React.FC = () => {
 						</S.RightBox>
 					</>
 				)}
-			</S.InfoBox>
+			</ComponentLayout>
 		</>
 	);
 };

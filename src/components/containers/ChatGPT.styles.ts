@@ -1,25 +1,5 @@
 import { animated } from 'react-spring';
 import styled from 'styled-components';
-import tw from 'twin.macro';
-
-export const ChatGPTBox = styled.article`
-	${tw`
-    text-white
-    mt-10
-    flex
-  `}
-	border: 1px solid rgba(255, 255, 255, 0.5);
-	width: 100%;
-	border-radius: 5px;
-	height: calc(100% - 25vh - 2.5rem);
-	overflow: hidden;
-	flex-direction: column;
-	position: relative;
-
-	@media screen and (max-width: 1280px) {
-		height: auto;
-	}
-`;
 
 export const ChatContent = styled.ul`
 	height: calc(100% - 40px);
@@ -43,16 +23,6 @@ export const ChatContent = styled.ul`
 	@media screen and (max-width: 1280px) {
 		height: 400px;
 	}
-`;
-
-export const Initial = styled.div`
-	justify-content: center;
-	opacity: 0.5;
-	line-height: 1.6;
-	font-weight: 100;
-	font-size: 14px;
-	text-align: center;
-	margin-top: 1rem;
 `;
 
 export const ChatMessage = styled(animated.li)<{ sender: 'user' | 'ai' }>`
@@ -117,12 +87,14 @@ export const ChatInputForm = styled.form`
 	margin-top: auto;
 
 	input {
-		flex: 1;
-		padding: 8px 12px;
+		appearance: none;
 		background-color: transparent;
 		outline: none;
-		width: calc(100% - 50px);
+		color: #fff;
 		cursor: pointer;
+		flex: 1;
+		padding: 8px 12px;
+		width: calc(100% - 50px);
 
 		&:focus {
 			&::placeholder {

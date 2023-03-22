@@ -1,10 +1,13 @@
 import { useRef, useEffect, useState } from 'react';
-import { fetchChatResponse } from '../api/chatGPT';
-import * as S from '../styles/components/ChatGPTStyle';
+import { fetchChatResponse } from '../../api/chatGPT';
+import * as S from './ChatGPT.styles';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { useTransition } from 'react-spring';
+
+import ComponentLayout from '../layout/ComponentLayout';
+import InitialText from '../atoms/InitialText';
 
 const ChatGPT: React.FC = () => {
 	const [messages, setMessages] = useState<
@@ -54,17 +57,17 @@ const ChatGPT: React.FC = () => {
 	});
 
 	return (
-		<S.ChatGPTBox>
+		<ComponentLayout component='chatGPT'>
 			<S.ChatContent ref={chatContentRef}>
 				{messages.length === 0 ? (
-					<S.Initial>
+					<InitialText>
 						<p>
 							AI와 대화해 보세요. <br />
 							AI는 한국말이 미숙하며, 영어에 능숙합니다.
 						</p>
-					</S.Initial>
+					</InitialText>
 				) : (
-					messageTransitions((style, message, _, index) => (
+					messageTransitions((style, message) => (
 						<S.ChatMessage sender={message.sender} style={style}>
 							<span style={{ lineHeight: '1.4' }}>{message.content}</span>
 						</S.ChatMessage>
@@ -91,7 +94,7 @@ const ChatGPT: React.FC = () => {
 					<FontAwesomeIcon icon={faPaperPlane} />
 				</button>
 			</S.ChatInputForm>
-		</S.ChatGPTBox>
+		</ComponentLayout>
 	);
 };
 

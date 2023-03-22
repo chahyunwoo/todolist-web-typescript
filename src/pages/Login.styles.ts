@@ -80,22 +80,17 @@ export const LoginBox = styled.div`
 `;
 
 export const Input = styled.input`
-	${tw`
-			appearance-none
-			bg-transparent
-			w-full
-			text-white
-			py-2
-			px-2
-			leading-tight
-			focus:outline-none
-			border-b-white
-			border-b
-			placeholder-white
-			text-center
-			cursor-pointer
-			tracking-wide
-	`}
+	appearance: none;
+	background-color: transparent;
+	outline: none;
+	color: #fff;
+	cursor: pointer;
+	width: 100%;
+	padding: 0.5rem;
+	line-height: 1.25;
+	border-bottom: 1px solid #fff;
+	text-align: center;
+	letter-spacing: 0.025em;
 
 	&:focus {
 		&::placeholder {
@@ -108,6 +103,7 @@ export const Input = styled.input`
 		opacity: 1;
 		visibility: visible;
 		transition: 0.5s;
+		color: #fff;
 	}
 `;
 

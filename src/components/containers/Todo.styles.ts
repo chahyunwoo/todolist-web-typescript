@@ -15,19 +15,14 @@ export const InputBox = styled.div`
 `;
 
 export const Input = styled.input`
-	${tw`
-      appearance-none
-      bg-transparent
-      py-2
-      px-2
-      leading-tight
-      focus:outline-none
-      border-b-white
-      border-b
-      cursor-pointer
-      tracking-wide
-			text-white
-  `}
+	appearance: none;
+	background-color: transparent;
+	outline: none;
+	color: #fff;
+	cursor: pointer;
+	line-height: 1.25;
+	border-bottom: 1px solid #fff;
+	letter-spacing: 0.025em;
 	width: 100%;
 
 	&:focus {
@@ -81,17 +76,6 @@ export const ListBox = styled.ul`
 	@media screen and (max-width: 1280px) {
 		height: 400px;
 	}
-`;
-
-export const Initial = styled.div`
-	justify-content: center;
-	opacity: 0.5;
-	line-height: 1.6;
-	font-weight: 100;
-	font-size: 14px;
-	text-align: center;
-	margin-top: 1rem;
-	color: #fff;
 `;
 
 export const List = styled.li`
