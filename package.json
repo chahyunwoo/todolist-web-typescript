@@ -10,6 +10,10 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "overrides": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.67.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
