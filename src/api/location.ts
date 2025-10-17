@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 
-const API_KEY = process.env.REACT_APP_LOCATION_API_KEY;
+const API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
 
 export async function fetchUserLocation(
 	lat: number,

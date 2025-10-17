@@ -4,4 +4,5 @@ export interface ILayout {
 
 export interface IComponentLayout extends ILayout {
 	component: string;
+	background?: string;
 }

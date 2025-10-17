@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { removeName } from '../../redux/slices/nameSlice';
 import { useState, useEffect, useCallback } from 'react';
 
-import * as S from './Welcome.styles';
-
 import ComponentLayout from '../layout/ComponentLayout';
 
 const Welcome: React.FC = () => {
@@ -50,17 +48,15 @@ const Welcome: React.FC = () => {
 	};
 
 	return (
-		<>
-			<ComponentLayout component='welcome'>
-				<S.LeftBox>
-					<S.P>{myName} 님! 오늘도 좋은 하루 보내세요.</S.P>
-					<S.Button onClick={onClick}>{myName}님이 아닌가요?</S.Button>
-				</S.LeftBox>
-				<S.RightBox>
-					<S.Time>{`현재 시간은 ${year}년 ${month}월 ${date}일 ${day} ${hour}시 ${minute}분 ${second}초 입니다.`}</S.Time>
-				</S.RightBox>
-			</ComponentLayout>
-		</>
+		<ComponentLayout component='welcome'>
+			<div className="mobile:w-full">
+				<p className="mb-2 text-lg mobile:text-base">{myName} 님! 오늘도 좋은 하루 보내세요.</p>
+				<button onClick={onClick} className="text-xs text-sky-500 tracking-wider">{myName}님이 아닌가요?</button>
+			</div>
+			<div className="mobile:w-full mobile:mt-5">
+				<p className="text-sm mobile:text-xs">{`현재 시간은 ${year}년 ${month}월 ${date}일 ${day} ${hour}시 ${minute}분 ${second}초 입니다.`}</p>
+			</div>
+		</ComponentLayout>
 	);
 };
 

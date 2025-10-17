@@ -1,17 +1,25 @@
 import { useEffect, useRef } from 'react';
-import * as S from './MainLayout.styles';
 
 import { ILayout } from '../../types/layoutTypes';
 
 const MainLayout: React.FC<ILayout> = ({ children }) => {
-	const layoutRef = useRef<any>(null);
+	const layoutRef = useRef<HTMLElement>(null);
 
 	useEffect(() => {
-		layoutRef.current.classList.remove('on');
-		layoutRef.current.classList.add('on');
+		if (layoutRef.current) {
+			layoutRef.current.classList.remove('on');
+			layoutRef.current.classList.add('on');
+		}
 	});
 
-	return <S.Section ref={layoutRef}>{children}</S.Section>;
+	return (
+		<section
+			ref={layoutRef}
+			className="p-10 flex flex-wrap relative z-[9] w-[90%] mx-auto my-0 opacity-0 translate-y-[50px] transition-all duration-1000 [&.on]:opacity-100 [&.on]:translate-y-0 mobile:w-full mobile:p-[30px_20px] mobile:block mobile:top-0 mobile:left-0 mobile:transform-none"
+		>
+			{children}
+		</section>
+	);
 };
 
 export default MainLayout;

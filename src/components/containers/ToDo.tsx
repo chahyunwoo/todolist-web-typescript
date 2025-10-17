@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import * as S from './Todo.styles';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Button } from '@material-tailwind/react';
 
 import ComponentLayout from '../layout/ComponentLayout';
 import InitialText from '../atoms/InitialText';
@@ -56,7 +55,7 @@ const ToDo: React.FC = () => {
 		}
 	};
 
-	const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === 'Enter') {
 			handleButtonClick();
 		}
@@ -72,19 +71,30 @@ const ToDo: React.FC = () => {
 
 	return (
 		<ComponentLayout component='todo'>
-			<S.InputBox>
-				<S.Input
+			<div className="p-5 flex h-[75px]">
+				<input
 					type='text'
 					placeholder='할 일을 입력하세요.'
 					value={value}
 					onChange={handleInputChange}
-					onKeyPress={handleKeyPress}
+					onKeyDown={handleKeyDown}
+					className="appearance-none bg-transparent outline-none text-white cursor-pointer leading-5 border-b border-white tracking-wider w-full placeholder:opacity-100 placeholder:visible placeholder:transition-all placeholder:duration-500 focus:placeholder:opacity-0 focus:placeholder:invisible"
 				/>
-				<S.AddButton color='green' size='lg' onClick={handleButtonClick}>
+				<Button
+					color='green'
+					size='lg'
+					onClick={handleButtonClick}
+					className="py-2 rounded-[2px] ml-2.5 w-10"
+					placeholder=""
+					onPointerEnterCapture={() => {}}
+					onPointerLeaveCapture={() => {}}
+					onResize={() => {}}
+					onResizeCapture={() => {}}
+				>
 					<FontAwesomeIcon icon={faPen} size='xl' />
-				</S.AddButton>
-			</S.InputBox>
-			<S.ListBox>
+				</Button>
+			</div>
+			<ul className="w-full px-5 block overflow-y-auto mobile:h-[400px] [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-button]:h-[2px] [&::-webkit-scrollbar-thumb]:bg-white/10" style={{ height: 'calc(100% - 115px)' }}>
 				{list.length === 0 ? (
 					<InitialText>
 						<p>
@@ -94,10 +104,15 @@ const ToDo: React.FC = () => {
 					</InitialText>
 				) : (
 					list.map((item) => (
-						<S.List key={item.id}>
-							<S.Span onClick={() => handleListClick(item.id)} done={item.done}>
+						<li key={item.id} className="w-full px-2 py-4 flex border-b border-white/30 justify-between last:border-none">
+							<span
+								onClick={() => handleListClick(item.id)}
+								className={`max-w-[90%] break-words leading-[1.4] cursor-pointer transition-colors duration-[350ms] ${
+									item.done ? 'text-[#4cd137]' : 'text-white'
+								}`}
+							>
 								{item.text}
-							</S.Span>
+							</span>
 							<button onClick={() => handleDelete(item.id)}>
 								<FontAwesomeIcon
 									icon={faTrash}
@@ -105,15 +120,15 @@ const ToDo: React.FC = () => {
 									style={{ color: 'rgba(255, 255, 255, 0.5)' }}
 								/>
 							</button>
-						</S.List>
+						</li>
 					))
 				)}
-			</S.ListBox>
-			<S.deleteAllButtonWrap>
-				<S.DeleteAllButton onClick={handleDeleteAll}>
+			</ul>
+			<div className="w-full border-t border-white/50 text-center mt-auto h-10 leading-10">
+				<button onClick={handleDeleteAll} className="cursor-pointer transition-all duration-500 text-white hover:text-[crimson]">
 					전체 삭제
-				</S.DeleteAllButton>
-			</S.deleteAllButtonWrap>
+				</button>
+			</div>
 		</ComponentLayout>
 	);
 };

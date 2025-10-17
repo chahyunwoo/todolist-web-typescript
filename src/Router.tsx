@@ -12,7 +12,7 @@ const Router: React.FC = () => {
   );
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Routes>
         <Route
           path="/login"

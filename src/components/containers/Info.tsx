@@ -14,8 +14,6 @@ import { setCurrentLocation } from '../../redux/slices/locationSlice';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import * as S from './Info.styles';
-
 import ComponentLayout from '../layout/ComponentLayout';
 
 const Info: React.FC = () => {
@@ -87,45 +85,43 @@ const Info: React.FC = () => {
 	}, [fetchData]);
 
 	return (
-		<>
-			<ComponentLayout component='info'>
-				{isLoading && (
-					<S.Spinner>
-						<div
-							className='inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-secondary motion-reduce:animate-[spin_1.5s_linear_infinite]'
-							role='status'>
-							<span className='!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]'>
-								Loading...
-							</span>
+		<ComponentLayout component='info'>
+			{isLoading && (
+				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+					<div
+						className='inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-secondary motion-reduce:animate-[spin_1.5s_linear_infinite]'
+						role='status'>
+						<span className='!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]'>
+							Loading...
+						</span>
+					</div>
+				</div>
+			)}
+			{currentWeather && (
+				<>
+					<div className="w-1/2 flex flex-col justify-center mobile:w-full">
+						<p className="w-full text-center mb-5 mobile:text-[13px]">{`현재 위치는 ${currentLocation.address_name}입니다.`}</p>
+						<div className="w-[15%] h-auto mx-auto my-0 mobile:w-20 mobile:mb-5">
+							<FontAwesomeIcon icon={currentWeather.icon as IconProp} className="w-full h-full object-cover" />
 						</div>
-					</S.Spinner>
-				)}
-				{currentWeather && (
-					<>
-						<S.LeftBox>
-							<p>{`현재 위치는 ${currentLocation.address_name}입니다.`}</p>
-							<div>
-								<FontAwesomeIcon icon={currentWeather.icon as IconProp} />
-							</div>
-						</S.LeftBox>
-						<S.RightBox>
-							<li>현재 기온: {currentWeather.temp} °C</li>
-							<li>체감 온도: {currentWeather.feels_like} °C</li>
-							<li>{currentWeather.weather}</li>
-							<li>습도: {currentWeather.humidity} %</li>
-							<li>
-								시간 당 강수량:{' '}
-								{`${currentWeather.rain ? currentWeather.rain + 'mm' : '-'}`}
-							</li>
-							<li>
-								시간 당 적설량:{' '}
-								{`${currentWeather.snow ? currentWeather.snow + 'mm' : '-'}`}
-							</li>
-						</S.RightBox>
-					</>
-				)}
-			</ComponentLayout>
-		</>
+					</div>
+					<ul className="w-1/2 flex flex-col pl-[100px] justify-center mobile:w-full mobile:pl-0">
+						<li className="w-full text-sm tracking-wider mb-2.5 last:mb-0 mobile:text-center">현재 기온: {currentWeather.temp} °C</li>
+						<li className="w-full text-sm tracking-wider mb-2.5 last:mb-0 mobile:text-center">체감 온도: {currentWeather.feels_like} °C</li>
+						<li className="w-full text-sm tracking-wider mb-2.5 last:mb-0 mobile:text-center">{currentWeather.weather}</li>
+						<li className="w-full text-sm tracking-wider mb-2.5 last:mb-0 mobile:text-center">습도: {currentWeather.humidity} %</li>
+						<li className="w-full text-sm tracking-wider mb-2.5 last:mb-0 mobile:text-center">
+							시간 당 강수량:{' '}
+							{`${currentWeather.rain ? currentWeather.rain + 'mm' : '-'}`}
+						</li>
+						<li className="w-full text-sm tracking-wider mb-2.5 last:mb-0 mobile:text-center">
+							시간 당 적설량:{' '}
+							{`${currentWeather.snow ? currentWeather.snow + 'mm' : '-'}`}
+						</li>
+					</ul>
+				</>
+			)}
+		</ComponentLayout>
 	);
 };
 
