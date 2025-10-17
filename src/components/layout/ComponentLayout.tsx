@@ -2,7 +2,7 @@ import { IComponentLayout } from '../../types/layoutTypes';
 
 const componentClasses: Record<string, string> = {
 	welcome: 'w-full p-5 items-center justify-between h-[10vh] mobile:justify-start mobile:flex-wrap mobile:h-auto',
-	chatGPT: 'mt-10 overflow-hidden flex-col relative mobile:h-auto',
+	claude: 'mt-10 overflow-hidden flex-col relative mobile:h-[400px] mobile:mt-[30px]',
 	info: 'p-5 flex-wrap relative w-full h-[25vh] mobile:h-auto',
 	todo: 'w-1/4 flex-col h-full mobile:w-full',
 };
@@ -11,7 +11,14 @@ function ComponentLayout(props: IComponentLayout) {
 	const { component, children, background } = props;
 
 	const specificClasses = componentClasses[component] || '';
-	const heightStyle = component === 'chatGPT' ? { height: 'calc(100% - 25vh - 2.5rem)' } : {};
+
+	// 모바일 체크 (간단한 방법)
+	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 1280;
+
+	// 모바일이 아닐 때만 calc 높이 적용
+	const heightStyle = component === 'claude' && !isMobile
+		? { height: 'calc(100% - 25vh - 2.5rem)' }
+		: {};
 
 	return (
 		<section

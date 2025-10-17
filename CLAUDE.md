@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-React TypeScript web application - A To-Do List app with ChatGPT integration, weather display, and location services. Built with **Vite**, **React 19**, **Redux Toolkit**, and **styled-components**.
+React TypeScript web application - A To-Do List app with Claude AI integration, weather display, and location services. Built with **Vite**, **React 19**, **Redux Toolkit**, and **Tailwind CSS**.
 
-**Primary Purpose:** Testing ChatGPT API integration with additional todo list and weather features for context.
+**Primary Purpose:** Testing Claude API integration with additional todo list and weather features for context. Claude provides superior multilingual support, longer context windows, and enhanced reasoning capabilities.
 
 ## Common Development Commands
 
@@ -26,7 +26,7 @@ npm install              # package.json 기반으로 설치
 ### Component Structure
 - **Atomic Design Pattern (Partial)**
   - `components/atoms/` - Small reusable UI components
-  - `components/containers/` - Feature-specific components (ChatGPT, ToDo, Info, Welcome)
+  - `components/containers/` - Feature-specific components (Claude Chat, ToDo, Info, Welcome)
   - `components/layout/` - Layout wrappers (MainLayout, ComponentLayout, TwinklingStar)
   - `pages/` - Full page components (Login, Main)
 
@@ -48,7 +48,10 @@ npm install              # package.json 기반으로 설치
 
 ### API Integrations
 Located in `src/api/`:
-- `chatGPT.ts` - OpenAI API (text-davinci-003, temp: 0.9, max tokens: 300)
+- `claude.ts` - Anthropic Claude API (Claude 3.5 Sonnet, temp: 1, max tokens: 2048)
+  - Full conversation history support for better context awareness
+  - Bilingual system prompt (Korean/English)
+  - Enhanced error handling with specific status code responses
 - `weatherAPI.ts` - OpenWeatherMap API (Korean translations, FontAwesome icons)
 - `location.ts` - Kakao Maps API (coordinate to region code conversion)
 
@@ -74,9 +77,9 @@ Located in `src/api/`:
 - Use explicit types for all API responses
 
 ### Animation Libraries
-- **react-spring:** Message transitions in ChatGPT (physics-based animations)
+- **react-spring:** Message transitions in Claude chat (physics-based animations)
 - **framer-motion v11:** Available for advanced animations
-- **CSS animations:** For simple effects (typing indicators, star twinkling)
+- **CSS animations:** For simple effects (typing indicators with bounce, star twinkling)
 - Prefer react-spring for component-level animations
 
 ## Component Hierarchy
@@ -92,25 +95,31 @@ App (background video + starfall)
                 ├── ToDo (left side - localStorage persisted)
                 └── RightSection
                     ├── Info (weather via OpenWeather + location via Kakao)
-                    └── ChatGPT (chat interface with OpenAI)
+                    └── ChatGPT (chat interface with Claude AI)
+                        - Full conversation history
+                        - Clear chat button
+                        - Purple-themed UI for Claude branding
 ```
 
 ## Environment Variables Required
 
-`.env.example` 파일을 `.env.local`로 복사 후 API 키 입력:
+`.env.example` 파일을 `.env`로 복사 후 API 키 입력:
 
 ```bash
-# .env.local
-VITE_OPENAI_API_KEY=your_openai_key
+# .env
+VITE_ANTHROPIC_API_KEY=your_anthropic_api_key_here
 VITE_WEATHER_API_KEY=your_openweather_key
 VITE_LOCATION_API_KEY=your_kakao_maps_key
 ```
 
-**중요:** Vite는 `VITE_` 접두사가 있는 환경 변수만 클라이언트에 노출합니다!
+**중요:**
+- Vite는 `VITE_` 접두사가 있는 환경 변수만 클라이언트에 노출합니다!
+- Anthropic API 키는 https://console.anthropic.com/ 에서 발급받을 수 있습니다
+- **보안 주의:** 프로덕션에서는 API 키를 클라이언트에 노출하지 말고 백엔드 프록시를 사용하세요
 
 코드에서 사용:
 ```typescript
-const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
 ```
 
 ## Adding New Features
@@ -244,7 +253,7 @@ User Action → Component Handler → API Call (axios)
 
 ### APIs & Utilities
 - **axios 1.7.9**
-- **OpenAI 4.77.3** - Latest SDK
+- **@anthropic-ai/sdk 0.67.0** - Official Anthropic SDK
 - **date-fns 4.1.0**
 
 ### Animations
