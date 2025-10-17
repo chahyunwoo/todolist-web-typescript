@@ -1,80 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400&display=swap");
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400&display=swap');
 
 html {
-	font-family: 'IBM Plex Sans KR', sans-serif !important;
+  font-family: "IBM Plex Sans KR", sans-serif !important;
 }
 
 @keyframes circleAnimation {
-	0% { transform: rotate(0deg); }
-	50% { transform: rotate(360deg); }
-	100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 @keyframes twinkling {
-	0% { opacity: 0; }
-	50% { opacity: 1; }
-	100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes typing {
-	0% { opacity: 0; }
-	50% { opacity: 1; }
-	100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .animate-circle-10 {
-	animation: circleAnimation 10s linear infinite;
+  animation: circleAnimation 10s linear infinite;
 }
 
 .animate-circle-20 {
-	animation: circleAnimation 20s linear infinite reverse;
+  animation: circleAnimation 20s linear infinite reverse;
 }
 
 .animate-circle-40 {
-	animation: circleAnimation 40s linear infinite;
+  animation: circleAnimation 40s linear infinite;
 }
 
 .animate-twinkling {
-	animation: twinkling var(--duration) linear infinite;
+  animation: twinkling var(--duration) linear infinite;
 }
 
 .animate-typing {
-	animation: typing 1s infinite;
+  animation: typing 1s infinite;
 }
 
 .text-ai-green {
-	color: #44bd32;
+  color: #44bd32;
 }
 
 .rounded-organic {
-	border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+  border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
 }
 
 @media (max-width: 1280px) {
-	.mobile\:hidden { display: none; }
-	.mobile\:block { display: block; }
-	.mobile\:w-full { width: 100%; }
-	.mobile\:h-auto { height: auto; }
-	.mobile\:h-\[400px\] { height: 400px; }
-	.mobile\:overflow-auto { overflow: auto; }
-	.mobile\:bg-black { background-color: black; }
-	.mobile\:p-\[30px_20px\] { padding: 30px 20px; }
-	.mobile\:top-0 { top: 0; }
-	.mobile\:left-0 { left: 0; }
-	.mobile\:transform-none { transform: none; }
-	.mobile\:justify-start { justify-content: flex-start; }
-	.mobile\:flex-wrap { flex-wrap: wrap; }
-	.mobile\:text-base { font-size: 1rem; line-height: 1.5rem; }
-	.mobile\:text-xs { font-size: 0.75rem; line-height: 1rem; }
-	.mobile\:text-\[13px\] { font-size: 13px; }
-	.mobile\:mt-5 { margin-top: 1.25rem; }
-	.mobile\:mt-\[30px\] { margin-top: 30px; }
-	.mobile\:m-\[30px_0_0\] { margin: 30px 0 0; }
-	.mobile\:mb-5 { margin-bottom: 1.25rem; }
-	.mobile\:w-20 { width: 5rem; }
-	.mobile\:pl-0 { padding-left: 0; }
-	.mobile\:text-center { text-align: center; }
-	.mobile\:max-w-\[80\%\] { max-width: 80%; }
-	.mobile\:after\:hidden::after { display: none; }
+  .mobile\:hidden {
+    display: none;
+  }
+  .mobile\:block {
+    display: block;
+  }
+  .mobile\:w-full {
+    width: 100%;
+  }
+  .mobile\:h-auto {
+    height: auto;
+  }
+  .mobile\:h-\[400px\] {
+    height: 400px;
+  }
+  .mobile\:overflow-auto {
+    overflow: auto;
+  }
+  .mobile\:bg-black {
+    background-color: black;
+  }
+  .mobile\:p-\[30px_20px\] {
+    padding: 30px 20px;
+  }
+  .mobile\:top-0 {
+    top: 0;
+  }
+  .mobile\:left-0 {
+    left: 0;
+  }
+  .mobile\:transform-none {
+    transform: none;
+  }
+  .mobile\:justify-start {
+    justify-content: flex-start;
+  }
+  .mobile\:flex-wrap {
+    flex-wrap: wrap;
+  }
+  .mobile\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .mobile\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .mobile\:text-\[13px\] {
+    font-size: 13px;
+  }
+  .mobile\:mt-5 {
+    margin-top: 1.25rem;
+  }
+  .mobile\:mt-\[30px\] {
+    margin-top: 30px;
+  }
+  .mobile\:m-\[30px_0_0\] {
+    margin: 30px 0 0;
+  }
+  .mobile\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+  .mobile\:w-20 {
+    width: 5rem;
+  }
+  .mobile\:pl-0 {
+    padding-left: 0;
+  }
+  .mobile\:text-center {
+    text-align: center;
+  }
+  .mobile\:max-w-\[80\%\] {
+    max-width: 80%;
+  }
+  .mobile\:after\:hidden::after {
+    display: none;
+  }
 }
